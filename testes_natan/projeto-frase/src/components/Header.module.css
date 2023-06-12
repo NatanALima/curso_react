@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: brown;
+    padding: 1em 2em;
+    color: white;
+}
+
+header .header__logo {
+    background-color: black;
+}
+
+.header__menu ul{
+    list-style: none;
+    display: flex;
+
+}
+
+.header__menu ul li {
+    margin: 0 15px;
+}
+
+.header__menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 5px;
+    transition: .2s;
+}
+
+.header__menu ul li a:hover {
+    background: black;
+}

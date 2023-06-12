@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>JavaScript Functions</h2>
+
+    <p>This example creates an object with 3 properties (firstName, lastName, fullName).</p>
+    <p>The fullName property is a method:</p> 
+    
+    <p id="demo"></p>
+
+    <p onclick="cliqueAqui">Clique em MIM</p>
+    
+    <script>
+    /*
+    const myObject = [{
+        firstName:"John",
+        lastName: "Doe",
+        fullName: function() {
+            let mostra;
+            if(this.firstName == "John") {
+                mostra = this.firstName + " " + this.lastName;
+            }
+          return mostra;
+        }
+      },
+      {
+        firstName:"NEW",
+        lastName: "NAME",
+        fullName: function() {
+          let mostra;
+            if(this.firstName == "John") {
+                mostra = this.firstName + " " + this.lastName;
+            }
+          return mostra;
+        }
+      }];
+    */
+    
+    function nomeCompleto() {
+    
+      let mostra;
+      if(this.firstName == "John") {
+        mostra = this.firstName;
+      }
+      return mostra;
+      
+    }
+    
+    const myObject = [{
+        firstName:"John",
+        lastName: "Doe",
+        fullName: nomeCompleto
+      },
+      {
+        firstName:"NEW",
+        lastName: "NAME",
+        fullName: nomeCompleto
+      }];
+    document.getElementById("demo").innerHTML = myObject.map(name => name.fullName());
+
+    function cliqueAqui() {
+      alert('Uau. Você clicou!');
+    }
+    </script>
+
+</body>
+</html>
