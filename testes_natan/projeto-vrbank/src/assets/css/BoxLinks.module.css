@@ -1,0 +1,61 @@
+.boxContainer
+{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container 
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 20px ;
+    box-shadow: 0 2px 6px 0 #17171752;
+    overflow-y: scroll;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Tela Index~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.container.index {
+    padding: 30px;
+    height: 600px;
+    width: 500px;
+} 
+
+.container div img {
+    position: relative;
+    display: flex;
+    height: 200px;
+    width: 200px;
+    padding: 0 0 50px 0;
+}
+.container.index div img {
+    height: 300px;
+    width: 300px;
+
+}
+
+/*Links da Tela index*/
+.container .linksGerais {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 0 0;
+}
+.container .linksGerais a {
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    transition: .2s;
+
+}
+.container .linksGerais a:hover {
+    color: var(--corTema);
+    background-color: var(--corTexto);
+}

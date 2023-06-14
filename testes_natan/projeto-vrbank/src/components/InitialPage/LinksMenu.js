@@ -1,9 +1,10 @@
-export default function LinksMenu({linksInfo}) {
+
+export default function LinksMenu({linksInfo, linkStyle}) {
     return(
-        <div class="linksGerais">
-            {linksInfo.map(link => {
+        <div className={linkStyle.linksGerais}>
+            {linksInfo.map((link, index) => {
                 return(
-                    <a href={link.refLink}>{link.refName}</a>
+                    <a href={link.refLink} key={index}>{link.refName}</a>
                 )
             })}
         </div>
