@@ -1,0 +1,203 @@
+@import url(./var.css);
+
+.container.addProduto
+{
+    position: relative;
+    display: flex;  
+    max-width: calc(100% - 10%);
+    padding: 15px;
+
+
+}
+
+.container.addProduto .boxAddProduto
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+
+}
+.container.addProduto .boxAddProduto .infoAlu,
+.container.addProduto .boxAddProduto .produtosBox .produto .nomeProduto,
+.container.addProduto .boxAddProduto .produtosBox .produto .valorProduto,
+.container.addProduto .boxAddProduto .produtosBox .produto .quantProduto
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container.addProduto .boxAddProduto input
+{
+    height: 30px;
+    width: 100%;
+    background: var(--corSecundaria);
+    border-radius: 10px ;
+    border: 1px solid var(--corTexto);
+    text-align: center;
+    outline: none;
+    color: var(--corTexto);
+    font-size: 1.1em;
+    font-weight: 400;
+}
+.container.addProduto .boxAddProduto .infoAlu input
+{
+    width: 225px;
+    background: var(--corTema);
+
+}
+
+.container.addProduto .boxAddProduto .infoAlu.nome span,
+.container.addProduto .boxAddProduto .produtosBox .produto span
+
+{
+    position: absolute;
+    top: 5px;
+    pointer-events: none;
+    color: var(--corTexto);
+    transition: 0.5s;
+
+}
+.container.addProduto .boxAddProduto .infoAlu.nome input:valid ~ span,
+.container.addProduto .boxAddProduto .infoAlu.nome input:focus ~ span,
+.container.addProduto .boxAddProduto .produtosBox .produto input:valid ~ span,
+.container.addProduto .boxAddProduto .produtosBox .produto input:focus ~ span
+
+{
+    top: initial;
+    transform: translateY(-60%);
+    font-size: 0.75em;
+    background: var(--corSecundaria);
+    border-left:1px solid var(--corTexto) ;
+    border-right:1px solid var(--corTexto) ;
+    letter-spacing: 1px;
+    padding: 0 5px ;
+    font-weight: 600;
+}
+.container.addProduto .boxAddProduto .infoAlu.nome input:valid ~ span,
+.container.addProduto .boxAddProduto .infoAlu.nome input:focus ~ span
+{
+    background: var(--corTema);
+}
+
+.container.addProduto .boxAddProduto .infoAlu.sala
+{
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+.container.addProduto .boxAddProduto .infoAlu.sala select 
+{
+    position: relative;
+    background: var(--corTema);
+    height: 100%;
+    width: 225px;
+    text-align: center; 
+    font-size: 0.9em;
+    border-radius: 10px ;
+    outline: none; 
+    border: 1px solid var(--corTexto);
+    font-weight: 600;
+
+}
+
+.container.addProduto .boxAddProduto .infoAlu.nome,
+.container.addProduto .boxAddProduto .infoAlu.sala
+{
+    padding: 0 0 20px 0;
+}
+.container.addProduto .boxAddProduto .produtosBox 
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container.addProduto .boxAddProduto .produtosBox .produto
+{
+    position: relative;
+    display: block;
+    /* border: 1px solid var(--corTexto); */
+    background-color: var(--corSecundaria);
+
+        box-shadow:
+    8px 7px 4px 1px #2e2d2d52,
+    5px 4px 3px 1px #2e2d2d52, 
+    2px 2px 3px 1px #2e2d2d52;
+
+    padding: 0 15px;
+    border-radius: 15px;
+    margin: 0 10px 10px 10px ; 
+}
+
+.container.addProduto .boxAddProduto .produtosBox .produto .nomeProduto,
+.container.addProduto .boxAddProduto .produtosBox .produto .valorProduto,
+.container.addProduto .boxAddProduto .produtosBox .produto .quantProduto
+{
+    position: relative;
+    margin: 20px 0;
+}
+.container.addProduto .boxAddProduto .botoes input
+{
+    display: none;
+}
+.container.addProduto .boxAddProduto .botoes
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    z-index: 10;
+}
+.container.addProduto .boxAddProduto .botoes .btn
+{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px 0 #37373752;
+    border: none;
+    background: var(--corTema);
+    font-size: 1.3em;
+    z-index: 10;
+
+}
+.container.addProduto .boxAddProduto .botoes .btn.remove ion-icon
+{
+    position: relative;
+    top: 2.5px;
+}
+
+
+.container.addProduto .boxAddProduto .botoes .btn.envia:hover ion-icon
+{
+    cursor: pointer;
+    color: #32cd32 ;
+    z-index: 10;
+
+}
+.container.addProduto .boxAddProduto .botoes .btn.remove:hover ion-icon
+{
+    cursor: pointer;
+    color: #cf0e0e ;
+    z-index: 10;
+    pointer-events: none;
+
+}
+.container.addProduto .boxAddProduto .botoes .btn.add:hover ion-icon
+{
+    cursor: pointer;
+    color: #00bfff ;
+    z-index: 10;
+
+}
