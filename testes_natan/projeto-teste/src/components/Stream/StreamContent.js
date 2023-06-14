@@ -1,3 +1,5 @@
+import styles from './StreamContent.module.css';
+
 export default function StreamContent() {
     function verifyGenStream() {
         let bgColor;
@@ -38,16 +40,16 @@ export default function StreamContent() {
     return(
         Streamers.map(streamer => {
             return(
-                <section className="streamCont" style={{backgroundColor: streamer.bgColor()}} key={streamer.id}>
-                    <h1 className="stmCont__userName">{streamer.userName}</h1>
+                <section className={styles.streamCont} style={{backgroundColor: streamer.bgColor()}} key={streamer.id}>
+                    <h1 className={styles.stmCont__userName}>{streamer.userName}</h1>
                     <img src={streamer.urlImg} alt={streamer.userName} />
-                    <p className="stmCont__streamLink">
+                    <p className={styles.stmCont__streamLink}>
                         Canal: 
                         <a href={"https://"+streamer.siteStream+"/"+streamer.userName}>
                             {streamer.siteStream}/{streamer.userName}
                         </a>
                     </p>
-                    <p className="stmCont__streamGen">Tipo de Conteúdo: {streamer.streamGen}</p>
+                    <p className={styles.stmCont__streamGen}>Tipo de Conteúdo: {streamer.streamGen}</p>
                 </section>
             )
             
