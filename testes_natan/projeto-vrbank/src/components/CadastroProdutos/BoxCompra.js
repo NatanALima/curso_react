@@ -1,18 +1,19 @@
-export default function BoxCompra({nameFunction, nameProd}) {
+export default function BoxCompra({event, boxStyle}) {
+
     return(
-        <div className="produto">
-            <div className="nomeProduto">
-                <input type="text" name="produto0" required="required"/>
-                <span>PRODUTO</span> 
+        <div className={boxStyle.produto}>
+            <div className={boxStyle.nomeProduto}>
+                <input type="text" className="prodNome" required="required" autoComplete="off" onChange={event}/>
+                <span>PRODUTO</span>
             </div>
-            <div className="valorProduto">
-                <input type="number" name="valor0" required="required"/>
-                <span>VALOR</span> 
+            <div className={boxStyle.valorProduto}>
+                <input type="number" className="prodVal" required="required" autoComplete="off" onChange={event}/>
+                <span>VALOR</span>
             </div>
-            <div className="quantProduto">
-                <input type="number" name="quant0" required="required"/>
+            <div className={boxStyle.quantProduto}>
+                <input type="number" className="prodQtd" required="required" autoComplete="off" onChange={event}/>
                 <span>QUANTIDADE</span>
             </div>
-        </div>
+        </div>  
     )
 }

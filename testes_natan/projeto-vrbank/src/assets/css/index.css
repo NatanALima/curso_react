@@ -8,6 +8,11 @@
   font-family: var(--Quicksandfonte);
   list-style: none;
   color: var(--corTexto);
+
+}
+
+body {
+  background: var(--corTema);
 }
 
 input[type=number]::-webkit-inner-spin-button { 
