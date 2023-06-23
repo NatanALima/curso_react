@@ -17,7 +17,7 @@ export default function Condicional() {
 
     return(
         <div>
-            <h2>Cadstre o seu e-mail:</h2>
+            <h2>Cadastre o seu e-mail:</h2>
             {/* onSubmit funcionaria melhor do que onClick */}
             <form>
                 <input type="email" name="email" id="email" autoComplete='off' onChange={e => setEmail(e.target.value)}/> 
