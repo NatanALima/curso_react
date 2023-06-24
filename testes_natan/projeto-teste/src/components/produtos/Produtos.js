@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Produtos.module.css';
 
-export default function Produtos({insertProdutos}) {
+export default function Produtos({insertProdutos, sendRequest, setSendRequest}) {
     const [prodName, setProdName] = useState();
     const [prodValue, setProdValue] = useState();
     const [prodQtd, setProdQtd] = useState();
@@ -12,6 +12,8 @@ export default function Produtos({insertProdutos}) {
         setProdVal(Number(prodValue.prodValue * e.target.value));
     }
 
+
+    // Tentar passar esta função para o componente pai e enviar os dados do produto para ela???
     const insertProd = () => {
         if(prodName !== undefined && prodValue !== undefined && prodQtd !== undefined) {
             //Passo todos os objetos que possuem as informações do produto diretamente para o usestate do componente pai
@@ -20,7 +22,17 @@ export default function Produtos({insertProdutos}) {
         } else {
             alert('Preencha todos os campos!');
         }
+
     }
+
+    //Ainda pendente
+    (function SendInsert () {
+        if(sendRequest) {
+            insertProd();
+            setSendRequest(false);
+        }
+    })();
+
 
     return(
         <div className={styles.boxProd}>
