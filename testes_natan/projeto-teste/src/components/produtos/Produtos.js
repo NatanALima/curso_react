@@ -7,16 +7,19 @@ export default function Produtos({insertProdutos}) {
     const [prodQtd, setProdQtd] = useState();
     const [prodVal, setProdVal] = useState();
 
-    const [produtos, setProdutos] = useState({});
-
     const calcQtd = (e) => {
         setProdQtd({[e.target.className]: Number(e.target.value)});
         setProdVal(Number(prodValue.prodValue * e.target.value));
     }
 
     const insertProd = () => {
-        setProdutos(prevProdutos => ({...prevProdutos, ...prodName, ...prodValue, ...prodQtd, ...prodVal}));
-        return insertProdutos([produtos]);
+        if(prodName !== undefined && prodValue !== undefined && prodQtd !== undefined) {
+            //Passo todos os objetos que possuem as informações do produto diretamente para o usestate do componente pai
+            return insertProdutos(prevProds => ([...prevProds, {...prodName, ...prodValue, ...prodQtd, ...prodVal}]));
+        
+        } else {
+            alert('Preencha todos os campos!');
+        }
     }
 
     return(

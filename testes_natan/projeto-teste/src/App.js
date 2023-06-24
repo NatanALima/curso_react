@@ -6,18 +6,22 @@ import Produtos from './components/produtos/Produtos';
 function App() {
   
   const [produtos, setProdutos] = useState([]);
+  const [isSend, setIsSend] = useState(false);
 
-  const insertProdutos = (prods) => {
-    setProdutos(prevProds => [...prevProds, prods]);
+  // const insertProdutos = (prods) => {
+  //   //console.log(prods);
+  //   setProdutos(produtos.concat(prods));
+  //   console.log(produtos);
 
-  }
+  // }
 
-  const [listBoxProd, setListBoxProd] = useState([<Produtos key={0} insertProdutos={insertProdutos}/>]);
+  const [listBoxProd, setListBoxProd] = useState([<Produtos key={0} insertProdutos={setProdutos
+  } test="hello"/>]);
 
   const addBoxList = () => {
     
     if(listBoxProd.length < 6) {
-      setListBoxProd(listBoxProd.concat([<Produtos key={listBoxProd.length} insertProdutos={insertProdutos}/>]));
+      setListBoxProd(listBoxProd.concat([<Produtos key={listBoxProd.length} insertProdutos={setProdutos} test="oi"/>]));
     } 
     
   }
@@ -28,11 +32,12 @@ function App() {
     }
   }
 
+  listBoxProd.map(boxProd => console.log(boxProd));
 
   return (
     <main>
       <h1>Informações de Produtos</h1>
-      <p className="infoProd">Lista dos Produtos: {produtos}</p>
+      <p className="infoProd">Lista dos Produtos: {JSON.stringify(produtos)}</p>
       <div className="prodContainer">
         {listBoxProd.map(boxProd => boxProd)}
       </div>
