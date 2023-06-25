@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './Produtos.module.css';
 
-export default function Produtos({insertProdutos, sendRequest, setSendRequest}) {
+export default function Produtos({setProdutos, insertClickRef, indexValue}) {
     const [prodName, setProdName] = useState();
     const [prodValue, setProdValue] = useState();
     const [prodQtd, setProdQtd] = useState();
@@ -12,26 +12,16 @@ export default function Produtos({insertProdutos, sendRequest, setSendRequest}) 
         setProdVal(Number(prodValue.prodValue * e.target.value));
     }
 
-
-    // Tentar passar esta função para o componente pai e enviar os dados do produto para ela???
     const insertProd = () => {
         if(prodName !== undefined && prodValue !== undefined && prodQtd !== undefined) {
             //Passo todos os objetos que possuem as informações do produto diretamente para o usestate do componente pai
-            return insertProdutos(prevProds => ([...prevProds, {...prodName, ...prodValue, ...prodQtd, ...prodVal}]));
+            return setProdutos(prevProds => ([...prevProds, {...prodName, ...prodValue, ...prodQtd, ...prodVal}]));
         
         } else {
             alert('Preencha todos os campos!');
         }
 
     }
-
-    //Ainda pendente
-    (function SendInsert () {
-        if(sendRequest) {
-            insertProd();
-            setSendRequest(false);
-        }
-    })();
 
 
     return(
@@ -50,7 +40,7 @@ export default function Produtos({insertProdutos, sendRequest, setSendRequest}) 
                 <input type="number" placeholder="Quantidade do Produto" className="prodQtd" autoComplete='off' onChange={calcQtd}/>
             </div>
             <div className={styles.boxProd__btn}>
-                <button onClick={insertProd}>Cadastrar Produto</button>
+                <button onClick={insertProd} ref={(e) => insertClickRef.current[indexValue] = e}>Cadastrar Produto</button>
             </div>
             
         </div>

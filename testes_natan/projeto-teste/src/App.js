@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState, useRef} from "react"
 import './App.css';
 //import StreamContent from './components/Stream/StreamContent';
 import Produtos from './components/produtos/Produtos';
@@ -6,46 +6,52 @@ import Produtos from './components/produtos/Produtos';
 function App() {
   
   const [produtos, setProdutos] = useState([]);
-  const [sendRequest, setSendRequest] = useState(false);
 
-  // const insertProdutos = (prods) => {
-  //   //console.log(prods);
-  //   setProdutos(produtos.concat(prods));
-  //   console.log(produtos);
+  //Este Ref pegará todos os botões referentes ao formulário de produtos no componente filho ("Produtos") para que, quando o botão "Finalizar Compra" presente no "APP" (aqui) exerça a função de todos os botões do componente filho, cadastrando todas as informações dos produtos presentes em cada formulário;
+  const insertClickRef = useRef([]);
 
-  // }
 
-  const [listBoxProd, setListBoxProd] = useState([<Produtos key={0} insertProdutos={setProdutos
-  } sendRequest={sendRequest} setSendRequest={setSendRequest}/>]);
+  const [numBoxProd, setnumBoxProd] = useState([0]);
 
   const addBoxList = () => {
     
-    if(listBoxProd.length < 6) {
-      setListBoxProd(listBoxProd.concat([<Produtos key={listBoxProd.length} insertProdutos={setProdutos} sendRequest={sendRequest} setSendRequest={setSendRequest}/>]));
+    if(numBoxProd.length < 6) {
+      setnumBoxProd(prevNumBox => [...prevNumBox, numBoxProd[numBoxProd.length -1] + 1]);
+      // setListBoxProd(listBoxProd.concat([<Produtos key={listBoxProd.length} insertProdutos={setProdutos} sendRequest={sendRequest ? sendRequest : false}/>]));
     } 
     
   }
 
   const delBoxList = () => {
-    if(listBoxProd.length > 1) {
-      setListBoxProd(prevListBoxProd => prevListBoxProd.slice(0, -1));
+    if(numBoxProd.length > 1) {
+      setnumBoxProd(prevNumBox => prevNumBox.slice(0, -1));
+      
     }
   }
 
-  // Pendente
   const handleSetRequest = () => {
-    setSendRequest(true);
+    insertClickRef.current.map(btn => btn.click());
+    console.log(insertClickRef.current);
+
   }
 
-  listBoxProd.map(boxProd => console.log(boxProd.props));
-  console.log(sendRequest);
+  useEffect(() => {
+    let valueRef = insertClickRef.current;
+    valueRef = valueRef.filter(el => el !== null);
+    insertClickRef.current = valueRef;
+
+  });
+
+
 
   return (
     <main>
       <h1>Informações de Produtos</h1>
       <p className="infoProd">Lista dos Produtos: {JSON.stringify(produtos)}</p>
       <div className="prodContainer">
-        {listBoxProd.map(boxProd => boxProd)}
+        {numBoxProd.map(boxProd => {
+          return <Produtos key={boxProd} setProdutos={setProdutos} insertClickRef={insertClickRef} indexValue={boxProd}/>
+        })}
       </div>
       <div className="mainBtn">
         <button onClick={addBoxList}>Adicionar </button>
