@@ -35,6 +35,8 @@ function App() {
 
   }
 
+  // Impede que ao remover um formulário de produtos, após ter clicado em finalizar compra, permaneça um valor nulo dentro do array de insertClickRef
+  // A cada renderização este useEffect será executado
   useEffect(() => {
     let valueRef = insertClickRef.current;
     valueRef = valueRef.filter(el => el !== null);
